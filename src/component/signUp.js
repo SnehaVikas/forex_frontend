@@ -1,0 +1,219 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Checkbox, TextField, Button, Grid, Paper, Avatar, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import FormControlLabel from '@mui/material/FormControlLabel';
+
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+
+
+import { Link } from "react-router-dom";
+import UserHeader2 from "./UserHeader2";
+import Footer from "./Footer";
+function SignUp() {
+   const [name, setName] = useState("");
+   const [location, setLocation] = useState("");
+   const [email, setEmail] = useState("");
+
+   const [gender, setGender] = useState("");
+   const [mobileNo, setMobileNo] = useState("");
+   const [password, setPassword] = useState("");
+   const [users, setUsers] = useState(null);
+   const [dialogMessage, setDialogMessage] = useState("");
+   const [dialogOpen, setDialogOpen] = useState(false);
+
+   const [resp, setResp] = useState("");
+
+   const [formErrors, setFormErrors] = useState({});
+
+
+   const paperStyle = { padding: 20, height: '70vh', width: 280, margin: "20px auto" }
+   const avatarStyle = { backgroundColor: '#1bbd7e' }
+   //Handling the submit button
+   const handleSubmit = () => {
+      let errors = {};
+
+      if (!name) {
+         errors['nameError'] = "Name is required."
+      }
+
+      if (!location) {
+         errors['locationError'] = "Location is required."
+      }
+
+      if (!email) {
+         errors['email'] = "Email is required"
+      }
+      if (!gender) {
+         errors['gender'] = "gender is required"
+      }
+      if (!mobileNo) {
+         errors['mobileNoError'] = "MobileNo No is required"
+      }
+      if (!password) {
+         errors['passwordError'] = "Password is required"
+      }
+
+
+      setFormErrors(errors);
+
+      const noErrors = Object.keys(errors).length === 0;
+
+
+      if (noErrors) {
+         const payload = {
+
+
+            location: location,
+            gender: gender,
+            email: email,
+            password: password,
+            mobileNo: mobileNo,
+            name: name
+
+         }
+            //call the api to save the vitals
+               axios
+                  .post("http://localhost:8081/users/save", payload)
+                  // .then(resp => alert("Users is saved with id: " + resp.data.usersId));
+                  .then(resp => {
+                     setUsers(resp.data);
+           
+                     const obj = {
+           
+           
+                       email: resp.data.email,
+                     };
+           
+                     setDialogMessage(": " + resp.data.id);
+
+            
+               setDialogOpen(true);
+               localStorage.setItem("mytoken", JSON.stringify(obj));
+            })   
+            
+            
+         }
+       
+
+
+      }
+      const handleCloseDialog = () => {
+         setDialogOpen(false);
+      };
+
+      return (
+        <>
+        <div>
+         <UserHeader2/>
+         <Footer/>
+        </div>
+         <Grid>
+            <Paper elevation={10} style={{
+               paperStyle, padding: "20px",
+               height: "103vh", width: "536px", margin: "20px auto"
+            }}>
+               <Grid align='center'>
+                  <Avatar style={avatarStyle}><HowToRegIcon /></Avatar>
+                  <h2>Sign Up</h2></Grid>
+               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", minWidth: "150px", maxWidth: "200px", height: "150px" }}>
+
+                  <div style={{ display: "flex", flexDirection: "row", width: "500px", marginTop: "5%" }}>
+                     <TextField
+                        label="Name" value={name} onChange={(event) => setName(event.target.value)}
+                        required
+                        error={!!formErrors.nameError} helperText={formErrors.nameError}
+                        style={{ marginBottom: "10px", width: "400px", marginRight: "-32px" }}>
+
+                     </TextField>
+
+                     <TextField
+                        label="location" value={location} onChange={(event) => setLocation(event.target.value)}
+
+                        required
+                        error={!!formErrors.locationError} helperText={formErrors.locationError}
+                        style={{ marginBottom: "10px", width: "400px", marginLeft: "50px" }}>
+
+                     </TextField>
+
+                  </div>
+
+                  <div style={{ display: "flex", flexDirection: "row", width: "500px", marginTop: "5%" }}>
+                     <TextField
+                        label="email" value={email} onChange={(event) => setEmail(event.target.value)} required
+                        error={!!formErrors.email} helperText={formErrors.email}
+                        style={{ marginBottom: "10px", width: "400px", marginRight: "-32px" }}></TextField>
+                     {
+                        formErrors.emailError && <div style={{ color: "red" }}>{formErrors.emailError}</div>
+                     }
+                     <TextField
+                        label="Password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} required
+                        error={!!formErrors.passwordError} helperText={formErrors.passwordError}
+                        style={{ marginBottom: "10px", width: "400px", marginLeft: "50px" }}></TextField>
+
+
+
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "row", width: "512px", marginLeft: "15%", marginTop: "5%" }}>
+                     <TextField
+                        label="Mobile No" value={mobileNo} onChange={(event) => setMobileNo(event.target.value)} required
+                        error={!!formErrors.mobileNoError} helperText={formErrors.mobileNoError}
+                        style={{ marginBottom: "10px", width: "450px", marginRight: "-75px" }}></TextField>
+
+                     <div style={{ marginLeft: "-324px", paddingTop: "69px" }}>
+                        <FormControl>
+                           <FormLabel component="legend" style={{ marginLeft: "52%" }}>Gender</FormLabel>
+                           <RadioGroup
+                              aria-label="gender" name="gender" onChange={(event) => setGender(event.target.value)} style={{ display: 'initial', marginLeft: "67px" }} required
+
+                           >
+                              <FormControlLabel value="female" control={<Radio />} label="Female" />
+                              <FormControlLabel value="male" control={<Radio />} label="Male" />
+
+                           </RadioGroup>
+
+                        </FormControl>
+                     </div>
+
+                  </div>
+                  <div style={{ marginRight: "-245px", paddingLeft: "104px", paddingTop: "17px" }}>
+                     <FormControlLabel
+                        control={<TextField as={Checkbox} name="termsAndConditions" />}
+                        label="I accept the terms and conditions." />
+                  </div>
+
+
+                  <div style={{ display: "flex", justifyContent: "space-between" }}>
+                     <Button onClick={handleSubmit} variant="contained" color="primary" style={{ marginLeft: "75px", marginTop: "45px", paddingLeft: "49px", paddingRight: "48px", paddingTop: "4px", paddingBottom: "gpx" }}>Submit</Button>
+                     <Link to="/"><Button type="button" variant="contained" color="secondary" style={{ marginLeft: "185px", marginTop: "45px" }} >Cancel</Button></Link>
+                  </div>
+                  <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
+
+                     <DialogTitle>Success!</DialogTitle>
+
+                     <DialogContent>
+
+                        <p>User saved  Sucessfully !!!!!!!!!</p>
+
+                     </DialogContent>
+
+                     <DialogActions>
+
+                       <Link to="/signin"> <Button onClick={() => setDialogOpen(false)}>OK</Button></Link>
+
+                     </DialogActions>
+
+                  </Dialog>
+               </form>
+               {/* </Container>   */}
+            </Paper>
+         </Grid>
+         </>
+      );
+
+   }
+   export default SignUp;

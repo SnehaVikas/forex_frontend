@@ -1,0 +1,42 @@
+.jumbotron{
+  
+    justify-content: center;
+    width: 50%;
+    margin-left: 1%;
+    margin-right: 2%;
+    /* margin-top: 2%; */
+    background-color: rgb(240, 245, 248);
+   
+    padding-top: 100px;
+   
+ }
+ .row{
+    padding-top: 1px;
+ }
+ .col-8{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    /* padding-left: 20px; */
+    padding-right: 30px;
+ }
+ .form-group{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+ }
+ 
+
+ .country-dropdown{
+   width: 150px;
+   
+ }
+ .currency-dropdown{
+   width: 150px;
+   
+   left: 1px;
+ }
+ .btn-btn-primary{
+   margin-left:-10%;
+   background-color: rgb(41, 242, 102);
+ }

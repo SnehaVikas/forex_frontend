@@ -1,0 +1,18 @@
+.bg-img {
+    /* background-image: url("C:\Users\sansarwa\Desktop\Forex\forex\React\forex\public\Images\fs.jpg"); */
+    background-repeat: no-repeat;
+  background-size: cover;
+    
+  }
+  .jumbotron{
+  
+    justify-content: center;
+    width: 50%;
+    margin-left: 26%;
+    margin-top: 2%;
+    background-color: rgb(235, 228, 216,0.477);
+   
+    padding-top: 100px;
+   
+  }
+  

@@ -1,0 +1,69 @@
+.receipt {
+  font-family: Arial, sans-serif;
+  font-size: 12pt;
+  color: #333;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.receipt-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.receipt-header h2 {
+  font-size: 20pt;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.receipt-details {
+  margin-bottom: 20px;
+}
+
+.receipt-details p {
+  margin-bottom: 5px;
+}
+
+.receipt-details span {
+  font-weight: bold;
+}
+
+.receipt-summary {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.receipt-summary span {
+  font-weight: bold;
+}
+
+.receipt-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btnDiv {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn {
+  margin-top: 20px;
+  background-color: #008CBA;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #006080;
+}

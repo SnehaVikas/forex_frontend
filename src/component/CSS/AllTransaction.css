@@ -1,0 +1,189 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.flex-item {
+    margin-bottom: 10px;
+}
+
+/* table {
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  cursor: pointer;
+} */
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+
+
+.header_fixed {
+
+    max-height: 100vh;
+
+    width: 100%;
+
+    overflow: auto;
+
+    border: 1px solid #dddddd;
+
+}
+
+
+
+
+.header_fixed thead th {
+
+    position: sticky;
+
+    top: 0;
+
+    background-color: black;
+
+    color: #e6e7e8;
+
+    font-size: 15px;
+
+}
+
+
+
+
+th,
+
+td {
+
+    border-bottom: 1px solid #dddddd;
+
+    padding: 10px 20px;
+
+    font-size: 14px;
+
+}
+
+
+
+
+td img {
+
+    height: 60px;
+
+    width: 60px;
+
+    border-radius: 100%;
+
+    border: 5px solid #e6e7e8;
+
+}
+
+
+
+
+tr:nth-child(even) {
+
+    background-color: #dddddd;
+
+}
+
+
+
+
+tr:nth-child(odd) {
+
+    background-color: #edeef1;
+
+}
+
+
+
+
+tr:hover td {
+
+    color: #141414;
+
+    cursor: pointer;
+
+    background-color: #ffffff;
+
+}
+
+
+
+
+td button {
+
+    border: none;
+
+    padding: 7px 20px;
+
+    border-radius: 20px;
+
+    background-color: black;
+
+    color: #e6e7e8;
+
+}
+
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom:5px;
+}
+
+.search-input {
+    margin-left: 20px;
+    padding: 5px;
+    border: 1px solid #ddd;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    color: #333;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.pagination .active a {
+    background-color: #333;
+    color: #fff;
+}
+
+.header_fixed {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
+    margin-bottom:-21px;
+
+}

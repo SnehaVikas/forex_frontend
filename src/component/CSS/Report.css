@@ -1,0 +1,186 @@
+.receipt {
+
+    max-width: 500px;
+
+    margin: auto;
+
+    padding: 20px;
+
+    border: 1px solid #ccc;
+
+}
+
+
+
+
+.receipt-header {
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+
+.receipt-header h1 {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+
+.receipt-details {
+    margin-bottom: 20px;
+    color: #000;
+    text-align: left;
+}
+
+
+
+.receipt-details p {
+    margin: 0;
+}
+
+
+
+.receipt-details p span {
+    font-weight: bold;
+    text-align: left;
+margin-left: '3px';
+}
+
+
+
+
+.receipt-summary p span {
+
+    font-weight: bold;
+
+}
+
+
+
+
+.receipt-summary {
+
+    margin-bottom: 20px;
+
+}
+
+
+
+
+.receipt-summary table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+
+
+.receipt-summary th,
+
+.receipt-summary td {
+
+    border: 1px solid #ccc;
+
+    padding: 10px;
+
+    text-align: center;
+
+}
+
+
+
+
+.receipt-summary th {
+
+    background-color: #f0f0f0;
+
+}
+
+
+
+
+.receipt-summary td:first-child {
+
+    font-weight: bold;
+
+}
+
+
+
+
+.receipt-summary td:last-child {
+
+    font-weight: bold;
+
+}
+
+
+
+
+.receipt-summary td {
+
+    font-weight: bold;
+
+}
+
+
+
+
+.receipt-footer {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+}
+
+
+
+
+.btnDiv {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+}
+
+
+
+
+.btn {
+
+    color: #fff;
+
+    background-color: #007bff;
+
+    border-color: #007bff;
+
+}
+
+
+
+
+.btn:hover {
+
+    color: #fff;
+
+    background-color: #0069d9;
+
+    border-color: #0062cc;
+
+}
